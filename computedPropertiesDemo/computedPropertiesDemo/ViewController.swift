@@ -68,18 +68,12 @@ extension ViewController : UITableViewDataSource, UITableViewDelegate{
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return tableViewModel[section].rows.count
 }
-    //func numberOfSections(in tableView: UITableView) -> Int {
-    //    return 6
-   // }
+    
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = UITableViewCell.init(style: .subtitle, reuseIdentifier: "OptionCell")
-//        cell.contentView.backgroundColor = .clear
-//        cell.backgroundColor = .clear
-//        cell.textLabel?.textAlignment = .center
-//        cell.textLabel?.textColor = .white
+//
         cell.textLabel?.font = UIFont.init(name: "System-Bold", size: 22)
-//        cell.textLabel?.text = options[indexPath.section][indexPath.row]
         cell.textLabel?.text = tableViewModel[indexPath.section].rows[indexPath.row].name
         cell.detailTextLabel?.text = (tableViewModel[indexPath.section].rows[indexPath.row].phoneNmber + "," + tableViewModel[indexPath.section].rows[indexPath.row].email) as String
         cell.accessoryType = .disclosureIndicator
