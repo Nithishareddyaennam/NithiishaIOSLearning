@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="20037" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="DkU-Jw-lbj">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="20020"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--ContactsVC-->
+        <scene sceneID="B5W-Zf-goC">
+            <objects>
+                <viewController storyboardIdentifier="ContactsVC" id="DkU-Jw-lbj" customClass="ContactsVC" customModule="CustomTVCellDemo" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="gmn-Dl-zwe">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="w3g-wq-9B0">
+                                <rect key="frame" x="0.0" y="144" width="414" height="718"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                            </tableView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Address Book" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hQ6-aa-Mak">
+                                <rect key="frame" x="154" y="71" width="106" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="ZWO-ap-cVa"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="ZWO-ap-cVa" firstAttribute="trailing" secondItem="w3g-wq-9B0" secondAttribute="trailing" id="NFs-PH-ykA"/>
+                            <constraint firstItem="ZWO-ap-cVa" firstAttribute="bottom" secondItem="w3g-wq-9B0" secondAttribute="bottom" id="aT4-s2-xk1"/>
+                            <constraint firstItem="w3g-wq-9B0" firstAttribute="leading" secondItem="ZWO-ap-cVa" secondAttribute="leading" id="du2-6R-4HZ"/>
+                            <constraint firstItem="w3g-wq-9B0" firstAttribute="top" secondItem="ZWO-ap-cVa" secondAttribute="top" constant="100" id="moP-a6-DFd"/>
+                            <constraint firstItem="hQ6-aa-Mak" firstAttribute="centerX" secondItem="gmn-Dl-zwe" secondAttribute="centerX" id="sWO-oc-7fE"/>
+                            <constraint firstItem="hQ6-aa-Mak" firstAttribute="top" secondItem="ZWO-ap-cVa" secondAttribute="top" constant="27" id="za1-az-JS4"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="tableView" destination="w3g-wq-9B0" id="NDP-6b-sv4"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Icg-Aw-s89" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-104" y="-55"/>
+        </scene>
+    </scenes>
+    <resources>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+    </resources>
+</document>
