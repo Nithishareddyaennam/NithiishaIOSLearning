@@ -9,12 +9,7 @@ import UIKit
 
 class ViewController: UIViewController, UITableViewDelegate,UITableViewDataSource
 {
-    struct jsondata: Codable{
-        var userId: Int!
-        var id: Int!
-        var title : String!
-        var body : String!
-        }
+   
     var userData = [jsondata]()
     var tableView = UITableView(frame: UIScreen.main.bounds, style: .grouped)
  
@@ -23,9 +18,10 @@ class ViewController: UIViewController, UITableViewDelegate,UITableViewDataSourc
         tableView.delegate = self
         tableView.dataSource = self
         readLocalFile(forName: "datafile")
-        self.view.addSubview(tableView)
-        tableView.register(UITableViewCell.self, forCellReuseIdentifier: "jsonTVCell")
         //print(p[0])
+         let nib = UINib.init(nibName: "TableViewCell", bundle: nil)
+         self.tableView.register(nib, forCellReuseIdentifier: String.init(describing: TableViewCell.self))
+         view.addSubview(tableView)
        }
     private func readLocalFile(forName name: String)  {
     
@@ -53,22 +49,28 @@ class ViewController: UIViewController, UITableViewDelegate,UITableViewDataSourc
          return userData.count
     }
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        var cell = tableView.dequeueReusableCell(withIdentifier: "jsonTVCell", for: indexPath)
-         cell = UITableViewCell.init(style: .subtitle, reuseIdentifier: "jsonTVCell")
-
-       let ID = "\(userData[indexPath.row].id!)"
-        let UserID = "\(userData[indexPath.row].userId!)"
-        cell.textLabel?.text = (ID + " ; " + UserID) as String
-        //cell.textLabel?.numberOfLines = 3
-        cell.detailTextLabel?.numberOfLines = 0
-
-        cell.detailTextLabel?.text = "TITLE: " + userData[indexPath.row].title + "\nBODY:" + userData[indexPath.row].body //as String
-      //  cell.detailTextLabel?.numberOfLines = 2
-       // cell.detailTextLabel?.text = userData[indexPath.row].body as String
-
+        
+        let cell = tableView.dequeueReusableCell(withIdentifier: "TableViewCell") as! TableViewCell
+        cell.setUI(dataObj : userData[indexPath.row])
+        
         
         return cell
     }
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        return 300
+    }
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        
+            print("tapped")
+            let cell = tableView.cellForRow(at: indexPath)
+        cell?.contentView.backgroundColor = .red
+        
+    }
+    func tableView(_ tableView: UITableView, didDeselectRowAt indexPath: IndexPath) {
+        let cell = tableView.cellForRow(at: indexPath)
+    cell?.contentView.backgroundColor = .black
+    }
+ 
      
 }
 
